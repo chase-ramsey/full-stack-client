@@ -1,1 +1,56 @@
-<h1>{{ title }}</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{ title }}</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main-wrapper">
+
+    <h2 class="featured-review">Featured review</h2>
+    <div class="featured-review-container" ng-repeat="review in featuredReview">
+      <h3>{{ review.media.title }}</h3>
+      <p>by <a class="featured-review-username" href="#/users/{{review.owner}}">{{ review.owner }}</a></p>
+      <div class="row">
+        <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <dl>
+            <dt>Media</dt>
+            <dd>{{ review.media.media_choice }}</dd>
+            <dt>Creator</dt>
+            <dd>{{ review.media.creator }}</dd>
+            <dt>Year released</dt>
+            <dd>{{ review.media.year_released }}</dd>
+          </dl>
+        </div>
+        <div class="column col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <img ng-src="{{ review.image_url }}">
+        </div>
+        <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-bind-html="review.full_text | lengthFilter500 | reviewMarkupFilter">
+          <!-- Full review text -->
+        </div>
+      </div>
+      <div class="row tag-row">
+        <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p><strong>Tags</strong></p>
+          <div class="btn btn-default" ng-repeat="tag in review.review_tags">
+            {{ tag.tag.word }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="featured-users">Featured curators</h2>
+    <div class="featured-users-container">
+      <div class="row">
+        <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-repeat="user in featuredUsers">
+        <h4><a href="#/users/{{user.username}}">{{ user.username }}</a></h4>
+        <ul class="featured-user-lists list-unstyled">
+          <li ng-repeat="list in user.lists" ng-click="goToList(list)">{{ list.name }}</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
