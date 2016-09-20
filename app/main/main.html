@@ -10,7 +10,7 @@
     <h2 class="featured-review">Featured review</h2>
     <div ng-repeat="review in featuredReview">
       <h3>{{ review.media.title }}</h3>
-      <a href="#/users/{{review.owner}}">{{ review.owner }}</a>
+      <p>by <a class="featured-review-username" href="#/users/{{review.owner}}">{{ review.owner }}</a></p>
       <div class="row">
         <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <dl>

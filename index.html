@@ -19,6 +19,18 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-route/angular-route.min.js"></script>
   <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="lib/firebase/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBhstwbHjhhk13f7BkhKE0zJUkCUJGXx4I",
+      authDomain: "full-stack-images.firebaseapp.com",
+      databaseURL: "https://full-stack-images.firebaseio.com",
+      storageBucket: "full-stack-images.appspot.com",
+      messagingSenderId: "488348642898"
+    };
+    firebase.initializeApp(config);
+  </script>
 
 <!-- Author scripts -->
   <script src="app/app.js"></script>
