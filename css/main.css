@@ -58,3 +58,5 @@ body {
   .featured-user-lists li:hover {
     background: #E6E6E6;
     cursor: pointer; }
+  .featured-user-lists li:last-of-type {
+    border-bottom: 0; }

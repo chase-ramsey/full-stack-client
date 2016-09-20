@@ -30,7 +30,7 @@ app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$loca
     )
 
   $scope.goToList = (list) => {
-    $location.path(`http://localhost:8080/users/${list.owner}/lists/${list.id}`);
+    $location.path(`/users/${list.owner}/lists/${list.id}`);
   }
 
 }]);
