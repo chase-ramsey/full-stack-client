@@ -1,4 +1,4 @@
-app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', function($scope, RootFactory, $http, $timeout) {
+app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$location', function($scope, RootFactory, $http, $timeout, $location) {
 
   $scope.title = 'Main page';
 
@@ -28,5 +28,9 @@ app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', functi
       },
       logError
     )
+
+  $scope.goToList = (list) => {
+    $location.path(`http://localhost:8080/users/${list.owner}/lists/${list.id}`);
+  }
 
 }]);

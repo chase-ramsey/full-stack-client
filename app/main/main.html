@@ -45,7 +45,7 @@
         <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-repeat="user in featuredUsers">
         <h4><a href="#/users/{{user.username}}">{{ user.username }}</a></h4>
         <ul class="featured-user-lists list-unstyled">
-          <li ng-repeat="list in user.lists"><a href="#/users/{{user.username}}/lists/{{list.id}}">{{ list.name }}</li>
+          <li ng-repeat="list in user.lists" ng-click="goToList(list)">{{ list.name }}</li>
         </ul>
         </div>
       </div>
