@@ -1,0 +1,36 @@
+body {
+  background: #E0E0E2; }
+
+.navbar-default {
+  background: #454851; }
+  .navbar-default .navbar-brand {
+    color: #058ED9;
+    font-size: 1.5em; }
+  .navbar-default .navbar-brand:hover {
+    color: rgba(5, 142, 217, 0.8); }
+
+.main-wrapper {
+  background: #FFF;
+  border-radius: 3px;
+  min-height: 80vh;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); }
+
+.featured-review {
+  color: #FFF;
+  background: #058ED9;
+  border-radius: 3px;
+  padding: 10px; }
+
+.featured-user {
+  color: #FFF;
+  background: #9DE268;
+  border-radius: 3px;
+  padding: 10px; }
+
+.tag-row {
+  margin-top: 20px; }
+  .tag-row .btn {
+    margin-right: 10px;
+    margin-top: 10px; }

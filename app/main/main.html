@@ -1,1 +1,46 @@
-<h1>{{ title }}</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{ title }}</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main-wrapper">
+
+    <h2 class="featured-review">Featured review</h2>
+    <div ng-repeat="review in featuredReview">
+      <h3>{{ review.media.title }}</h3>
+      <a href="#/users/{{review.owner}}">{{ review.owner }}</a>
+      <div class="row">
+        <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <dl>
+            <dt>Media</dt>
+            <dd>{{ review.media.media_choice }}</dd>
+            <dt>Creator</dt>
+            <dd>{{ review.media.creator }}</dd>
+            <dt>Year released</dt>
+            <dd>{{ review.media.year_released }}</dd>
+          </dl>
+        </div>
+        <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <!-- Image -->
+        </div>
+        <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-bind-html="review.full_text | lengthFilter500 | reviewMarkupFilter">
+          <!-- Full review text -->
+        </div>
+      </div>
+      <div class="row tag-row">
+        <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p><strong>Tags</strong></p>
+          <div class="btn btn-default" ng-repeat="tag in review.review_tags">
+            {{ tag.tag.word }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="featured-user">Featured curators</h2>
+
+  </div>
+</div>
+
