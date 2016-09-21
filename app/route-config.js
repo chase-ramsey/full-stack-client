@@ -12,4 +12,8 @@ app.config(($routeProvider) => {
         controller: 'ReviewCtrl',
         templateUrl: 'app/review/review-detail.html'
       })
+      .when('/lists/:list_id', {
+        controller: 'ListCtrl',
+        templateUrl: 'app/list/list-detail.html'
+      })
   });
