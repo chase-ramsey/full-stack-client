@@ -24,4 +24,12 @@ app.config(($routeProvider) => {
         controller: 'RegisterCtrl',
         templateUrl: 'app/auth/login.html'
       })
+      .when('/create/review', {
+        controller: 'NewReviewCtrl',
+        templateUrl: 'app/create/review-create.html'
+      })
+      .when('/curate', {
+        controller: 'ManageListCtrl',
+        templateUrl: 'app/create/manage-lists.html'
+      })
   });
