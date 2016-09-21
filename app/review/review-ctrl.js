@@ -22,7 +22,8 @@ app.controller('ReviewCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Ro
         $scope.watsonReport = JSON.parse($scope.thisReview.watson_report);
         console.log("watson report: ", $scope.watsonReport);
         $timeout();
-      }
+      },
+      logError
     )
 
   $scope.toggleShow = (show) => {
