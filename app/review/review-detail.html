@@ -1,0 +1,131 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{ title }}</a>
+    <ul class="nav navbar-nav">
+      <li><a href="#/">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main-wrapper">
+
+    <h2 class="featured-review">{{ thisReview.media.title }}</h2>
+    <h4 class="review-byline">Review by: <a href="#/users/{{ thisReview.owner }}">{{ thisReview.owner }}</a></h4>
+    <div class="row">
+      <div class="column col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1">
+        <img ng-src="{{thisReview.image_url}}">
+      </div>
+      <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <dl>
+            <dt>Media</dt>
+            <dd>{{ thisReview.media.media_choice }}</dd>
+            <dt>Creator</dt>
+            <dd>{{ thisReview.media.creator }}</dd>
+            <dt>Year released</dt>
+            <dd>{{ thisReview.media.year_released }}</dd>
+          </dl>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="review-nav">
+          <ul class="list-inline">
+            <li ng-class="{'active': showFullText}" ng-click="toggleShow('text')">Full text</li>
+            <li ng-class="{'active': showReviewStats}" ng-click="toggleShow('stats')">Tags/stats</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-show="showFullText">
+      <div class="full-review-text column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" ng-bind-html="thisReview.full_text | reviewMarkupFilter">
+        <!-- Review text -->
+      </div>
+    </div>
+    <div class="row tag-row" ng-show="showReviewStats">
+      <div class="column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+
+        <div class="row">
+          <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p><strong>Keyword tags</strong></p>
+            <div class="btn btn-default" ng-repeat="tag in thisReview.review_tags">
+              {{ tag.tag.word }}
+            </div>
+          </div>
+        </div>
+
+        <p class="review-stats-title"><strong>Statistics</strong></p>
+        <div class="row">
+          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Concepts</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="concept in watsonReport.concepts">
+                  <td>{{ concept.text }}</td>
+                  <td>{{ concept.relevance }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Sentiment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Type</strong></td>
+                  <td>{{ watsonReport.docSentiment.type }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Score</strong></td>
+                  <td>{{ watsonReport.docSentiment.score }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Emotions</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(emotion, score) in watsonReport.docEmotions">
+                  <td>{{ emotion }}</td>
+                  <td>{{ score }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Entities</th>
+                  <th>Relevance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="entity in watsonReport.entities">
+                  <td>{{ entity.text }}</td>
+                  <td>{{ entity.relevance }}</td>
+                </tr>
+              </tbody>
+            </table>          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
