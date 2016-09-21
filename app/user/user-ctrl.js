@@ -18,7 +18,6 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$loc
     .then(
       userRes => {
         $scope.user = userRes.data
-        console.log("user: ", $scope.user);
       },
       logError
     )
