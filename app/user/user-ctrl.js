@@ -1,4 +1,4 @@
-app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', function($scope, $routeParams, $http, $timeout, RootFactory) {
+app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$location', 'RootFactory', function($scope, $routeParams, $http, $timeout, $location, RootFactory) {
 
   $scope.title = 'User Profile';
 
@@ -31,6 +31,10 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Root
       $scope.showReviews = false;
       $scope.showLists = true;
     }
+  }
+
+  $scope.goToList = (list) => {
+    $location.path(`/lists/${list.id}`);
   }
 
 }]);
