@@ -15,7 +15,6 @@ app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$loca
     .then(
       reviewRes => {
         $scope.featuredReview = reviewRes.data;
-        console.log("featured reviews: ", $scope.featuredReview);
         return $http.get($scope.apiRoot['featuredusers'])
       },
       logError
@@ -23,7 +22,6 @@ app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$loca
     .then(
       userRes => {
         $scope.featuredUsers = userRes.data;
-        console.log("featured users: ", $scope.featuredUsers);
         $timeout();
       },
       logError

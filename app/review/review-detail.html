@@ -11,7 +11,7 @@
   <div class="main-wrapper">
 
     <h2 class="featured-review">{{ thisReview.media.title }}</h2>
-    <h4 class="review-byline">Review by: <a href="#/users/{{ thisReview.owner }}">{{ thisReview.owner }}</a></h4>
+    <h4 class="review-byline">Review by: <a href="#/users/{{ thisReview.user_id }}">{{ thisReview.owner }}</a></h4>
     <div class="row">
       <div class="column col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1">
         <img ng-src="{{thisReview.image_url}}">

@@ -1,1 +1,72 @@
-<h1>{{ title }}</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{ title }}</a>
+    <ul class="nav navbar-nav">
+      <li><a href="#/">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main-wrapper">
+
+    <div class="row">
+      <div class="column col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1">
+        <img class="avatar" ng-src="{{ user.image.image_url }}">
+      </div>
+      <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <h5>{{ user.username }}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="review-nav">
+          <ul class="list-inline">
+            <li ng-class="{'active': showReviews}" ng-click="toggleShow('reviews')">Media ({{ user.reviews.length }})</li>
+            <li ng-class="{'active': showLists}" ng-click="toggleShow('lists')">Lists ({{ user.lists.length }})</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" ng-show="showReviews">
+      <div class="column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="review-item" ng-repeat="review in user.reviews">
+          <h3><a href="#/reviews/{{ review.id }}">{{ review.media.title }}</a></h3>
+
+          <div class="row media-details">
+            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <p><strong>Media</strong>: {{ review.media.media_choice }}</p>
+            </div>
+            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <p><strong>Creator</strong>: {{ review.media.creator }}</p>
+            </div>
+            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <p><strong>Year released</strong>: {{ review.media.year_released }}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <img ng-src="{{ review.image_url }}">
+            </div>
+            <div class="column col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" ng-bind-html="review.full_text | lengthFilter500 | reviewMarkupFilter">
+              <!-- Review text -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row" ng-show="showLists">
+      <div class="column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+        <ul class="list-unstyled featured-user-lists">
+          <li ng-repeat="list in user.lists" ng-click="goToList(list)"><h3>{{ list.name }}</h3></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -11,6 +11,7 @@
   <div class="main-wrapper">
 
     <h2 class="featured-review">{{ thisList.name }}</h2>
+    <h4>Curated by: <a href="#/users/{{ thisList.user_id }}">{{ thisList.owner }}</a></h4>
 
     <div class="row">
       <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-repeat="listReview in listReviews">
