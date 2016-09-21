@@ -2,7 +2,7 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Root
 
   $scope.title = 'User Profile';
 
-  $scope.showMedia = true;
+  $scope.showReviews = true;
   $scope.showLists = false;
 
   let logError = (err) => console.log("error", err);
@@ -24,11 +24,11 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Root
     )
 
   $scope.toggleShow = (show) => {
-    if (show === 'media') {
+    if (show === 'reviews') {
       $scope.showLists = false;
-      $scope.showMedia = true;
+      $scope.showReviews = true;
     } else if (show === 'lists') {
-      $scope.showMedia = false;
+      $scope.showReviews = false;
       $scope.showLists = true;
     }
   }
