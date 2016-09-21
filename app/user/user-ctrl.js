@@ -1,7 +1,5 @@
 app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$location', 'RootFactory', function($scope, $routeParams, $http, $timeout, $location, RootFactory) {
 
-  $scope.title = 'User Profile';
-
   $scope.showReviews = true;
   $scope.showLists = false;
 

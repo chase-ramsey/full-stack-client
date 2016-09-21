@@ -16,4 +16,12 @@ app.config(($routeProvider) => {
         controller: 'ListCtrl',
         templateUrl: 'app/list/list-detail.html'
       })
+      .when('/login', {
+        controller: 'LoginCtrl',
+        templateUrl: 'app/auth/login.html'
+      })
+      .when('/register', {
+        controller: 'RegisterCtrl',
+        templateUrl: 'app/auth/login.html'
+      })
   });

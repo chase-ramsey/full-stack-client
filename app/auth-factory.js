@@ -1,0 +1,7 @@
+app.factory('AuthFactory', () => {
+
+  return {
+
+  }
+
+})
