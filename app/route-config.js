@@ -4,7 +4,7 @@ app.config(($routeProvider) => {
         controller: 'MainCtrl',
         templateUrl: 'app/main/main.html'
       })
-      .when('/users/:username', {
+      .when('/users/:user_id', {
         controller: 'UserCtrl',
         templateUrl: 'app/user/user.html'
       })
