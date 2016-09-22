@@ -26,7 +26,7 @@ app.config(($routeProvider) => {
       })
       .when('/create/review', {
         controller: 'NewReviewCtrl',
-        templateUrl: 'app/create/review-create.html'
+        templateUrl: 'app/create/new-review.html'
       })
       .when('/curate', {
         controller: 'ManageListCtrl',
