@@ -18,7 +18,20 @@ app.controller('ManageListCtrl', ['$scope', '$http', '$location', '$timeout', 'R
     )
 
   $scope.submitNewList = () => {
-    return;
+    $http.defaults.headers.common.Authorization = 'Basic ' + AuthFactory.checkCreds();
+    $http({
+      url: $scope.apiRoot.lists,
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      data: {
+        "name": $scope.newListName,
+      }
+    })
+    .success(res => {
+      $scope.user.lists.push(res)
+      $scope.newListName = '';
+    })
+    .error(console.error);
   }
 
   $scope.clearNewForm = () => {

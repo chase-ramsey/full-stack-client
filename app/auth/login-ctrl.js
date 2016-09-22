@@ -26,7 +26,6 @@ app.controller('LoginCtrl', ['$scope', '$http', '$location', 'AuthFactory', 'API
         "password": $scope.password
       }
     }).success(res => {
-      console.log("login succes res: ", res);
       if (res.success) {
         AuthFactory.checkCreds({
           username: $scope.username,

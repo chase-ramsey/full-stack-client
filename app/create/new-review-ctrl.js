@@ -1,4 +1,4 @@
-app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'RootFactory', function($scope, $http, $location, $timeout, RootFactory) {
+app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'RootFactory', 'AuthFactory', function($scope, $http, $location, $timeout, RootFactory, AuthFactory) {
 
   let logError = (err) => console.log("error", err);
 
@@ -37,7 +37,24 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
   }
 
   $scope.submitMedia = () => {
-    return;
+    mediaType = $scope.mediaChoices.find((choice) => {
+      return choice.choice_name === $scope.addChoiceName;
+    })
+    console.log("mediaType: ", mediaType);
+    console.log("media choice_name: ", mediaType.choice_name);
+    $http({
+      url: $scope.apiRoot.media,
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      data: {
+        "media_choice": mediaType.choice_name,
+        "title": $scope.addTitle,
+        "creator": $scope.addCreator,
+        "year_released": $scope.addYear
+      }
+    })
+    .success(res => console.log("add media res: ", res))
+    .error(console.error);
   }
 
   $scope.submitReview = () => {
@@ -45,11 +62,15 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
   }
 
   $scope.clearSelectForm = () => {
-    return;
+    $scope.mediaSelection = '';
+    $scope.getOptions();
   }
 
   $scope.clearAddForm = () => {
-    return;
+    $scope.addChoiceName = '';
+    $scope.addTitle = '';
+    $scope.addCreator = '';
+    $scope.addYear = '';
   }
 
 }])
