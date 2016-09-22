@@ -15,7 +15,28 @@ app.controller('LoginCtrl', ['$scope', '$http', '$location', 'AuthFactory', 'API
   }
 
   $scope.login = () => {
-    return;
+    console.log("username: ", $scope.username);
+    console.log("password: ", $scope.password);
+    $http({
+      url: `${API_URL}login/`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        "username": $scope.username,
+        "password": $scope.password
+      }
+    }).success(res => {
+      console.log("res: ", res);
+      if (res.success) {
+        AuthFactory.checkCreds({
+          username: $scope.username,
+          password: $scope.password
+        });
+        $location.path('/');
+      }
+    }).error(console.error);
   }
 
   $scope.register = () => {

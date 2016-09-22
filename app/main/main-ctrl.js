@@ -1,4 +1,4 @@
-app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$location', function($scope, RootFactory, $http, $timeout, $location) {
+app.controller('MainCtrl', ['$scope', '$http', '$timeout', '$location', 'RootFactory', 'AuthFactory', function($scope, $http, $timeout, $location, RootFactory, AuthFactory) {
 
   let logError = (err) => console.log("error", err);
 
@@ -24,6 +24,10 @@ app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$loca
       },
       logError
     )
+
+  if (AuthFactory.checkCreds()) {
+    $scope.loggedIn = true;
+  }
 
   $scope.goToList = (list) => {
     $location.path(`/lists/${list.id}`);

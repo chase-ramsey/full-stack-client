@@ -16,7 +16,7 @@
         <h2>Register</h2>
         <p>If you have already registered, you can login <a href="#/login">here</a>.</p>
 
-        <form>
+        <form ng-submit="register()">
           <div class="form-group">
             <label for="first_name">First name</label>
             <input type="text" id="first_name" name="first_name" ng-model="first_name" class="form-control" />
@@ -39,10 +39,10 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" id="password" name="password" ng-model="password" class="form-control" />
+            <input type="password" id="password" name="password" ng-model="password" class="form-control" />
           </div>
           <button class="btn btn-danger" ng-click="clearRegisterForm()">Clear</button>
-          <button class="btn btn-success" ng-click="register()">Submit</button>
+          <button class="btn btn-success" type="submit">Submit</button>
         </form>
 
       </div>
