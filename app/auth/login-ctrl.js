@@ -15,8 +15,6 @@ app.controller('LoginCtrl', ['$scope', '$http', '$location', 'AuthFactory', 'API
   }
 
   $scope.login = () => {
-    console.log("username: ", $scope.username);
-    console.log("password: ", $scope.password);
     $http({
       url: `${API_URL}login/`,
       method: "POST",
@@ -28,7 +26,7 @@ app.controller('LoginCtrl', ['$scope', '$http', '$location', 'AuthFactory', 'API
         "password": $scope.password
       }
     }).success(res => {
-      console.log("res: ", res);
+      console.log("login succes res: ", res);
       if (res.success) {
         AuthFactory.checkCreds({
           username: $scope.username,
@@ -39,8 +37,27 @@ app.controller('LoginCtrl', ['$scope', '$http', '$location', 'AuthFactory', 'API
     }).error(console.error);
   }
 
-  $scope.register = () => {
-    return;
-  }
+  $scope.register = function() {
+    $http({
+      url: `${API_URL}register/`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        "username": $scope.username,
+        "password": $scope.password,
+        "email": $scope.email,
+        "image_url": $scope.image_url,
+        "first_name": $scope.first_name,
+        "last_name": $scope.last_name
+      }
+    }).success(res => {
+      console.log("register success res: ", res);
+      if (res.success) {
+        $scope.login();
+      }
+    }).error(console.error);
+  };
 
 }])

@@ -1,10 +1,8 @@
 
 let requiresAuth = ($location, AuthFactory) => new Promise((resolve, reject) => {
   if (AuthFactory.checkCreds()) {
-    console.log("User is authenticated, resolve route promise");
     resolve();
   } else {
-    console.log("User is not authenticated, reject route promise");
     reject();
     $location.path("/login");
   }
