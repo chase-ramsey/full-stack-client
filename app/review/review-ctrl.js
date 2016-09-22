@@ -1,7 +1,5 @@
 app.controller('ReviewCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', function($scope, $routeParams, $http, $timeout, RootFactory) {
 
-  $scope.title = 'Review Detail';
-
   $scope.showFullText = true;
   $scope.showReviewStats = false;
 

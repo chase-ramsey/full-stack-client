@@ -1,7 +1,5 @@
 app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$location', 'RootFactory', function($scope, $routeParams, $http, $timeout, $location, RootFactory) {
 
-  $scope.title = 'User Profile';
-
   $scope.showReviews = true;
   $scope.showLists = false;
 
@@ -18,7 +16,6 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$loc
     .then(
       userRes => {
         $scope.user = userRes.data
-        console.log("user: ", $scope.user);
       },
       logError
     )

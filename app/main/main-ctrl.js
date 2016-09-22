@@ -1,7 +1,5 @@
 app.controller('MainCtrl', ['$scope', 'RootFactory', '$http', '$timeout', '$location', function($scope, RootFactory, $http, $timeout, $location) {
 
-  $scope.title = 'Main page';
-
   let logError = (err) => console.log("error", err);
 
   RootFactory.getApiRoot()

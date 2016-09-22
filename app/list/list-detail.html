@@ -2,6 +2,8 @@
   <div class="container-fluid">
     <a class="navbar-brand">{{ title }}</a>
     <ul class="nav navbar-nav">
+      <li><a href="#/create/review">New review</a></li>
+      <li><a href="#/curate">Manage lists</a></li>
       <li><a href="#/">Home</a></li>
     </ul>
   </div>
@@ -17,7 +19,7 @@
       <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-repeat="listReview in listReviews">
         <div class="list-review-container">
           <img ng-src="{{ listReview.review.image_url }}">
-          <h3><a href="#/reviews/{{review.id}}">{{ listReview.review.media.title }}</a></h3>
+          <h3><a href="#/reviews/{{listReview.review.id}}">{{ listReview.review.media.title }}</a></h3>
           <dl>
             <dt>Media</dt>
             <dd>{{ listReview.review.media.media_choice }}</dd>
