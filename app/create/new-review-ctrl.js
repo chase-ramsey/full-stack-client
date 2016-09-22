@@ -53,12 +53,31 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
         "year_released": $scope.addYear
       }
     })
-    .success(res => console.log("add media res: ", res))
+    .success(res => {
+      $scope.allMedia.push(res);
+      $scope.clearAddForm();
+    })
     .error(console.error);
   }
 
   $scope.submitReview = () => {
-    return;
+    $http.defaults.headers.common.Authorization = 'Basic ' + AuthFactory.checkCreds();
+    console.log("mediaUrl: ", $scope.mediaUrl);
+    $http({
+      url: $scope.apiRoot.reviews,
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      data: {
+        "media": $scope.mediaUrl,
+        "image_url": $scope.selectImage,
+        "full_text": $scope.reviewText
+      }
+    })
+    .success(res => {
+      console.log("res: ", res);
+      $location.path(`/reviews/${res.id}/`)
+    })
+    .error(console.error);
   }
 
   $scope.clearSelectForm = () => {
