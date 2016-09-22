@@ -1,7 +1,11 @@
-app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$location', 'RootFactory', function($scope, $routeParams, $http, $timeout, $location, RootFactory) {
+app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$location', 'RootFactory', 'AuthFactory', function($scope, $routeParams, $http, $timeout, $location, RootFactory, AuthFactory) {
 
   $scope.showReviews = true;
   $scope.showLists = false;
+
+  if (AuthFactory.checkCreds()) {
+    $scope.loggedIn = true;
+  }
 
   let logError = (err) => console.log("error", err);
 

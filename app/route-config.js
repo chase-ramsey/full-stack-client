@@ -34,6 +34,10 @@ app.config(($routeProvider) => {
       controller: 'LoginCtrl',
       templateUrl: 'app/auth/register.html'
     })
+    .when('/logout/', {
+      controller: 'LogoutCtrl',
+      template: ''
+    })
     .when('/create/review', {
       controller: 'NewReviewCtrl',
       templateUrl: 'app/create/new-review.html',

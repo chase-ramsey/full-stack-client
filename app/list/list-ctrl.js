@@ -1,6 +1,10 @@
-app.controller('ListCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', function($scope, $routeParams, $http, $timeout, RootFactory) {
+app.controller('ListCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', 'AuthFactory', function($scope, $routeParams, $http, $timeout, RootFactory, AuthFactory) {
 
   $scope.title = 'List Detail';
+
+  if (AuthFactory.checkCreds()) {
+    $scope.loggedIn = true;
+  }
 
   let logError = (err) => console.log("error", err);
 

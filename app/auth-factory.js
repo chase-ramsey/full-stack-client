@@ -14,6 +14,10 @@ app.factory('AuthFactory', () => {
             return false;
           }
         }
+    },
+
+    clearCreds: () => {
+      userCreds = {};
     }
 
   }
