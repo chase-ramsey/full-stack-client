@@ -1,7 +1,11 @@
-app.controller('ReviewCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', function($scope, $routeParams, $http, $timeout, RootFactory) {
+app.controller('ReviewCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'RootFactory', 'AuthFactory', function($scope, $routeParams, $http, $timeout, RootFactory, AuthFactory) {
 
   $scope.showFullText = true;
   $scope.showReviewStats = false;
+
+  if (AuthFactory.checkCreds()) {
+    $scope.loggedIn = true;
+  }
 
   let logError = (err) => console.log("error", err);
 

@@ -13,36 +13,20 @@
     <div class="row">
       <div class="column col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
 
-        <h2>{{ title }}</h2>
-        <p>{{ wrongFormText }}<a href="#/{{ wrongForm }}">here</a>.</p>
+        <h2>Login</h2>
+        <p>If you don't have a login, create a new account <a href="#/register">here</a>.</p>
 
-        <form>
-          <div class="form-group" ng-show="registering">
-            <label for="first_name">First name</label>
-            <input type="text" id="first_name" name="first_name" ng-model="first_name" class="form-control" />
-          </div>
-          <div class="form-group" ng-show="registering">
-            <label for="last_name">Last name</label>
-            <input type="text" id="last_name" name="last_name" ng-model="last_name" class="form-control" />
-          </div>
-          <div class="form-group" ng-show="registering">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" ng-model="email" class="form-control" />
-          </div>
-          <div class="form-group" ng-show="registering">
-            <label for="image_url">Image URL</label>
-            <input type="text" id="image_url" name="image_url" ng-model="image_url" class="form-control" />
-          </div>
+        <form ng-submit="login()">
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" ng-model="username" class="form-control" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" id="password" name="password" ng-model="password" class="form-control" />
+            <input type="password" id="password" name="password" ng-model="password" class="form-control" />
           </div>
-          <button class="btn btn-danger" ng-click="clearForm()">Clear</button>
-          <button class="btn btn-success" ng-click="submitForm()">Submit</button>
+          <a class="btn btn-danger" ng-click="clearLoginForm()">Clear</a>
+          <button class="btn btn-success" type="submit">Submit</button>
         </form>
 
       </div>
