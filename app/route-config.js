@@ -33,8 +33,8 @@ app.config(($routeProvider) => {
       templateUrl: 'app/auth/login.html'
     })
     .when('/register', {
-      controller: 'RegisterCtrl',
-      templateUrl: 'app/auth/login.html'
+      controller: 'LoginCtrl',
+      templateUrl: 'app/auth/register.html'
     })
     .when('/create/review', {
       controller: 'NewReviewCtrl',
