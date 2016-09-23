@@ -63,7 +63,6 @@ app.controller('ManageListCtrl', ['$scope', '$http', '$location', '$timeout', 'R
       }
     })
     .success(res => {
-      console.log("res: ", res);
       $scope.addSuccess = true;
     })
     .error(console.error);
