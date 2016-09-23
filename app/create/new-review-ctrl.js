@@ -55,7 +55,7 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
     })
     .success(res => {
       $scope.allMedia.push(res);
-      $scope.clearAddForm();
+      $scope.addSuccess = true;
     })
     .error(console.error);
   }
@@ -83,6 +83,7 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
   $scope.clearSelectForm = () => {
     $scope.mediaSelection = '';
     $scope.getOptions();
+    $scope.selectImage = '';
   }
 
   $scope.clearAddForm = () => {
@@ -90,6 +91,7 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
     $scope.addTitle = '';
     $scope.addCreator = '';
     $scope.addYear = '';
+    $scope.addSuccess = false;
   }
 
 }])
