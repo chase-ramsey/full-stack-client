@@ -11,6 +11,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
       <li><a href="#/logout">Logout</a></li>
+      <li><a href="#/users/{{ uid }}">Your profile</a></li>
     </ul>
   </div>
 </nav>
@@ -18,7 +19,7 @@
 <div class="container">
   <div class="main-wrapper">
 
-    <h2 class="featured-review">Featured review</h2>
+    <h2 class="featured-review">Featured reviews</h2>
     <div class="featured-review-container" ng-repeat="review in featuredReview">
       <h3><a href="#/reviews/{{review.id}}">{{ review.media.title }}</a></h3>
       <p>by <a class="featured-review-username" href="#/users/{{review.user_id}}">{{ review.owner }}</a></p>

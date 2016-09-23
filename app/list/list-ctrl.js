@@ -12,7 +12,7 @@ app.controller('ListCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Root
     .then(
       root => {
         $scope.apiRoot = root;
-        return $http.get(`${$scope.apiRoot.lists}${$routeParams.list_id}`);
+        return $http.get(`${$scope.apiRoot.lists}${$routeParams.list_id}/`);
       },
       logError
     )

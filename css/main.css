@@ -119,3 +119,9 @@ body {
 
 .new-review-form {
   margin-top: 50px; }
+
+.review-detail-image {
+  width: 100%; }
+
+.list-review-container img {
+  width: 100%; }

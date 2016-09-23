@@ -27,6 +27,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$timeout', '$location', 'RootFac
 
   if (AuthFactory.checkCreds()) {
     $scope.loggedIn = true;
+    $scope.uid = AuthFactory.getUserId();
   }
 
   $scope.goToList = (list) => {
