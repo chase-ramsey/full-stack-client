@@ -75,7 +75,7 @@ app.controller('NewReviewCtrl', ['$scope', '$http', '$location', '$timeout', 'Ro
     })
     .success(res => {
       console.log("res: ", res);
-      $location.path(`/reviews/${res.id}/`)
+      $location.path(`/reviews/${res.id}`);
     })
     .error(console.error);
   }

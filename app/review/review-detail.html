@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <a class="navbar-brand">[ Need app name ]</a>
+    <a class="navbar-brand">Allist</a>
     <ul class="nav navbar-nav">
       <li><a href="#/create/review">New review</a></li>
       <li><a href="#/curate">Manage lists</a></li>
@@ -48,7 +48,7 @@
     </div>
     <div class="row" ng-show="showFullText">
       <div class="full-review-text column col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" ng-bind-html="thisReview.full_text | reviewMarkupFilter">
-        <!-- Review text -->
+        <!-- {{ thisReview.full_text }} -->
       </div>
     </div>
     <div class="row tag-row" ng-show="showReviewStats">

@@ -13,7 +13,7 @@ app.controller('UserCtrl', ['$scope', '$routeParams', '$http', '$timeout', '$loc
     .then(
       root => {
         $scope.apiRoot = root;
-        return $http.get(`${$scope.apiRoot.users}${$routeParams.user_id}`);
+        return $http.get(`${$scope.apiRoot.users}${$routeParams.user_id}/`);
       },
       logError
     )

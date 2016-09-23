@@ -20,6 +20,7 @@ app.controller('ReviewCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'Ro
     .then(
       reviewRes => {
         $scope.thisReview = reviewRes.data;
+        console.log("thisReview: ", $scope.thisReview);
         $scope.watsonReport = JSON.parse($scope.thisReview.watson_report);
         $timeout();
       },
